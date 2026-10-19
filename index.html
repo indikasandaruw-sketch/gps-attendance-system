@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPS Attendance System</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    text-align: center;
+    padding: 20px;
+}
+.container {
+    max-width: 420px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #ccc;
+}
+h1 { color: #126b45; }
+.status {
+    padding: 15px;
+    background: #e8f5e9;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+button {
+    background: #126b45;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>GPS Attendance</h1>
+    <p>ස්වයංක්‍රීය පැමිණීමේ පද්ධතිය</p>
+
+    <div class="status" id="status">
+        Location පරීක්ෂා කිරීමට සූදානම්.
+    </div>
+
+    <p id="location">Location: පරීක්ෂා කර නැත</p>
+    <p id="clock"></p>
+
+    <button onclick="checkLocation()">Location පරීක්ෂා කරන්න</button>
+
+    <p style="font-size:12px;color:gray;">
+        මෙය මූලික පරීක්ෂණ පිටුවකි. තවම ස්වයංක්‍රීය Attendance සක්‍රිය කර නැත.
+    </p>
+</div>
+
+<script>
+function updateClock() {
+    document.getElementById("clock").textContent =
+        new Date().toLocaleString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+function checkLocation() {
+    const status = document.getElementBy
